@@ -19,8 +19,8 @@ Dont forget to add this to your custom compiles.sqf
 	garage_removefriend = compile preprocessFileLineNumbers "Garage\garage_removefriend.sqf";
 	garage_spawnVehicle = compile preprocessFileLineNumbers "Garage\garage_spawnvehicle.sqf";
 	garage_storeVehicle = compile preprocessFileLineNumbers "Garage\garage_storeVehicle.sqf";
-	
-I your description.ext
+
+###### description.ext
 	
 	#include "Garage\garage_defines.hpp"
 	#inlcude "Garage\garage_dialog.hpp"
@@ -29,7 +29,7 @@ I your description.ext
 ##### 1. Server Files
 Copy and paste the files from the serverfolder to '\z\addons\dayz_server\compile\'
   
-server_function.sqf
+###### server_function.sqf
 Add these lines to the compile lines at the top
 
 	server_storevehicle = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_storevehicle.sqf";
@@ -41,7 +41,7 @@ below add
 	"PVDZE_veh_spawn" addPublicVariableEventHandler {(_this select 1) spawn server_spawnvehicle};
 
   	
-server_monitor.sqf
+###### server_monitor.sqf
 Below
 
   	_object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
@@ -65,13 +65,13 @@ replace it with
 
 
 ##### 2. Mission files
-  ***Variables.sqf
-  Paste this line at the top
+###### Variables.sqf
+Paste this line at the top
   
-   DZE_Garage = ["Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C","Land_MBG_Garage_Single_D"];
-  
-  ***fn_selfActions.sqf
-  Add this anywhere below line 225
+	DZE_Garage = ["Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C","Land_MBG_Garage_Single_D"];
+ 
+###### fn_selfActions.sqf
+Add this anywhere below line 225
   
   	private ["_garageowner","_garagefriends","_garageallowed","_friend"];
   	_garageowner = _cursorTarget getVariable ["ownerPUID","0"];
@@ -94,9 +94,9 @@ replace it with
 	  	s_player_garage = -1;		
   	};
   
-  This has to put to the buttom
+This has to put to the buttom
 
   	player removeAction s_player_garage;
   	s_player_garage = -1;
   	
-Done.
+###### Done.
