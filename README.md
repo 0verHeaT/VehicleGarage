@@ -6,7 +6,7 @@ Created by 0verHeaT
 
 Installation
 =============
-0. Basic
+##### 0. Basic
   Paste the garage folder in your mission file.
   Dont forget to add this to your custom compiles.sqf
 ````c++
@@ -24,7 +24,7 @@ Installation
 	#include "Garage\garage_defines.hpp"
 	#inlcude "Garage\garage_dialog.hpp"
 
-1. Server Files
+##### 1. Server Files
   Copy and paste the files from the serverfolder to '\z\addons\dayz_server\compile\'
   ***server_function.sqf
   Add these lines to the compile lines at the top
@@ -53,7 +53,7 @@ Installation
   replace it with 
     if ((count _intentory > 0) && !((typeOf _object) in DZE_Garage)) then {
 
-2. Mission files
+##### 2. Mission files
   ***Variables.sqf
   Paste this line at the top
   
