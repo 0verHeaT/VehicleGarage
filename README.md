@@ -11,7 +11,7 @@ Installation
   Paste the garage folder in your mission file.
   Dont forget to add this to your custom compiles.sqf
   
-	```javascript
+	`
 	garage_getnearVeh = compile preprocessFileLineNumbers "Garage\garage_nearvehicles.sqf";
 	garage_getstoredVeh = compile preprocessFileLineNumbers "Garage\garage_storedvehicles.sqf";
 	garage_manage = compile preprocessFileLineNumbers "Garage\garage_manage.sqf";
@@ -20,7 +20,7 @@ Installation
 	garage_removefriend = compile preprocessFileLineNumbers "Garage\garage_removefriend.sqf";
 	garage_spawnVehicle = compile preprocessFileLineNumbers "Garage\garage_spawnvehicle.sqf";
 	garage_storeVehicle = compile preprocessFileLineNumbers "Garage\garage_storeVehicle.sqf";
-	```
+	`
 	
 	I your description.ext
 	
