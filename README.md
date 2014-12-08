@@ -27,35 +27,42 @@ I your description.ext
 	
 
 ##### 1. Server Files
-  Copy and paste the files from the serverfolder to '\z\addons\dayz_server\compile\'
+Copy and paste the files from the serverfolder to '\z\addons\dayz_server\compile\'
   
-  server_function.sqf
-  Add these lines to the compile lines at the top
-		````
-		server_storevehicle = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_storevehicle.sqf";
-		server_spawnvehicle = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnvehicle.sqf";
-	 	````
-  below add
-  	````
+server_function.sqf
+Add these lines to the compile lines at the top
+
+	server_storevehicle = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_storevehicle.sqf";
+	server_spawnvehicle = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnvehicle.sqf";
+
+below add
+
 	"PVDZE_veh_store" addPublicVariableEventHandler {(_this select 1) spawn server_storevehicle};
 	"PVDZE_veh_spawn" addPublicVariableEventHandler {(_this select 1) spawn server_spawnvehicle};
-  	````
+
   	
-	server_monitor.sqf
-  Below
-  		_object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
+server_monitor.sqf
+Below
+
+  	_object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
     	_object setVariable ["lastUpdate",time];
     	_object setVariable ["ObjectID", _idKey, true];
-  Add this
-    	if ((typeOf _object) in DZE_Garage) then {
-				_object setVariable ["StoredVehicles",_intentory,true];
-				_object setVariable ["GarageFriends",_hitPoints,true];
-			};
+    	
+ Add this
+ 
+   	if ((typeOf _object) in DZE_Garage) then {
+		_object setVariable ["StoredVehicles",_intentory,true];
+		_object setVariable ["GarageFriends",_hitPoints,true];
+	};
 
-	Now look for 
+Now look for 
+
 	  if (count _intentory > 0) then {
-  replace it with 
+	  
+replace it with 
+
     if ((count _intentory > 0) && !((typeOf _object) in DZE_Garage)) then {
+
 
 ##### 2. Mission files
   ***Variables.sqf
