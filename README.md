@@ -10,18 +10,18 @@ Installation
 ##### 0. Basic
   Paste the garage folder in your mission file.
   Dont forget to add this to your custom compiles.sqf
-	````c
-	garage_getnearVeh = 				compile preprocessFileLineNumbers "Garage\garage_nearvehicles.sqf";
-	garage_getstoredVeh = 			compile preprocessFileLineNumbers "Garage\garage_storedvehicles.sqf";
-	garage_manage = 				  	compile preprocessFileLineNumbers "Garage\garage_manage.sqf";
-	garage_fillplayers =				compile preprocessFileLineNumbers "Garage\garage_fillplayers.sqf";
-	garage_addfriend =			  	compile preprocessFileLineNumbers "Garage\garage_addfriend.sqf";
-	garage_removefriend = 			compile preprocessFileLineNumbers "Garage\garage_removefriend.sqf";
-	garage_spawnVehicle = 			compile preprocessFileLineNumbers "Garage\garage_spawnvehicle.sqf";
-	garage_storeVehicle = 			compile preprocessFileLineNumbers "Garage\garage_storeVehicle.sqf";
+	````
+	garage_getnearVeh = compile preprocessFileLineNumbers "Garage\garage_nearvehicles.sqf";
+	garage_getstoredVeh = compile preprocessFileLineNumbers "Garage\garage_storedvehicles.sqf";
+	garage_manage = compile preprocessFileLineNumbers "Garage\garage_manage.sqf";
+	garage_fillplayers = compile preprocessFileLineNumbers "Garage\garage_fillplayers.sqf";
+	garage_addfriend = compile preprocessFileLineNumbers "Garage\garage_addfriend.sqf";
+	garage_removefriend = compile preprocessFileLineNumbers "Garage\garage_removefriend.sqf";
+	garage_spawnVehicle = compile preprocessFileLineNumbers "Garage\garage_spawnvehicle.sqf";
+	garage_storeVehicle = compile preprocessFileLineNumbers "Garage\garage_storeVehicle.sqf";
 	````	
 	I your description.ext
-	````c++
+	````
 	#include "Garage\garage_defines.hpp"
 	#inlcude "Garage\garage_dialog.hpp"
 	````
@@ -29,19 +29,19 @@ Installation
 ##### 1. Server Files
   Copy and paste the files from the serverfolder to '\z\addons\dayz_server\compile\'
   
-  ##### server_function.sqf
+  server_function.sqf
   Add these lines to the compile lines at the top
-		````c++
+		````
 		server_storevehicle = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_storevehicle.sqf";
 		server_spawnvehicle = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnvehicle.sqf";
 	 	````
   below add
-  	````c++
-		"PVDZE_veh_store" addPublicVariableEventHandler {(_this select 1) spawn server_storevehicle};
-		"PVDZE_veh_spawn" addPublicVariableEventHandler {(_this select 1) spawn server_spawnvehicle};
+  	````
+	"PVDZE_veh_store" addPublicVariableEventHandler {(_this select 1) spawn server_storevehicle};
+	"PVDZE_veh_spawn" addPublicVariableEventHandler {(_this select 1) spawn server_spawnvehicle};
   	````
   	
-	##### server_monitor.sqf
+	server_monitor.sqf
   Below
   		_object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
     	_object setVariable ["lastUpdate",time];
