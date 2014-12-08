@@ -11,7 +11,7 @@ Installation
   Paste the garage folder in your mission file.
   Dont forget to add this to your custom compiles.sqf
   
-	````
+	```
 	garage_getnearVeh = compile preprocessFileLineNumbers "Garage\garage_nearvehicles.sqf";
 	garage_getstoredVeh = compile preprocessFileLineNumbers "Garage\garage_storedvehicles.sqf";
 	garage_manage = compile preprocessFileLineNumbers "Garage\garage_manage.sqf";
@@ -20,14 +20,14 @@ Installation
 	garage_removefriend = compile preprocessFileLineNumbers "Garage\garage_removefriend.sqf";
 	garage_spawnVehicle = compile preprocessFileLineNumbers "Garage\garage_spawnvehicle.sqf";
 	garage_storeVehicle = compile preprocessFileLineNumbers "Garage\garage_storeVehicle.sqf";
-	````	
+	```
 	
 	I your description.ext
 	
-	````
+	```
 	#include "Garage\garage_defines.hpp"
 	#inlcude "Garage\garage_dialog.hpp"
-	````
+	```
 
 ##### 1. Server Files
   Copy and paste the files from the serverfolder to '\z\addons\dayz_server\compile\'
