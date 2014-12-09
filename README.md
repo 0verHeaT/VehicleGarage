@@ -82,9 +82,9 @@ below add
 ###### server_monitor.sqf
 Below
 
-  	_object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
-    	_object setVariable ["lastUpdate",time];
-    	_object setVariable ["ObjectID", _idKey, true];
+	_object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
+	_object setVariable ["lastUpdate",time];
+	_object setVariable ["ObjectID", _idKey, true];
     	
  Add this
  
@@ -95,11 +95,11 @@ Below
 
 Now look for 
 
-	  if (count _intentory > 0) then {
+	if (count _intentory > 0) then {
 	  
 replace it with 
 
-    if ((count _intentory > 0) && !((typeOf _object) in DZE_Garage)) then {
+	if ((count _intentory > 0) && !((typeOf _object) in DZE_Garage)) then {
 
  
 ###### Done.
