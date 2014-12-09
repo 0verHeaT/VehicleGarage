@@ -86,7 +86,7 @@ Add this anywhere below line 225
   	if ((_typeOfCursorTarget in DZE_Garage) && (speed player <= 1) && _canDo) then {
   		if (s_player_garage < 0) then {
 	  		if ((getPlayerUID player) in _garageallowed) then {
-	  			s_player_garage =  player addAction ["<t color='#FFAA00'>Garage Menu</t>", "OcgMods\actions\player_virtualgarage.sqf", _cursorTarget, 2, false];
+	  			s_player_garage =  player addAction ["<t color='#FFAA00'>Garage Menu</t>", "Garage\player_virtualgarage.sqf", _cursorTarget, 2, false];
   			} else {
 	  			s_player_garage = player addAction ["<t color='#FF0000'>Garage Locked</t>", "",_cursorTarget, 2, true, true, "", ""];	
 	  		};
