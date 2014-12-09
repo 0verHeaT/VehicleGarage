@@ -5,6 +5,8 @@ Virtual Vehicle Storage for Arma 2 Epoch
 
 Created by 0verHeaT
 
+##### NOTE: This script will only work if you set the owner ID to the garage building (cf. Plot 4 Life)
+
 Installation
 =============
 ##### 0. Basic
