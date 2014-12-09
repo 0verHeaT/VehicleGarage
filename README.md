@@ -27,8 +27,43 @@ Dont forget to add this to your custom compiles.sqf
 	#include "Garage\garage_defines.hpp"
 	#inlcude "Garage\garage_dialog.hpp"
 	
+##### 1. Mission files
+###### Variables.sqf
+Paste this line at the top
+  
+	DZE_Garage = ["Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C","Land_MBG_Garage_Single_D"];
+ 
+###### fn_selfActions.sqf
+Add this anywhere below line 225
+  
+  	private ["_garageowner","_garagefriends","_garageallowed","_friend"];
+  	_garageowner = _cursorTarget getVariable ["ownerPUID","0"];
+  	_friend = _cursorTarget getVariable ["GarageFriends",[]];
+  	_garagefriends = [];
+  	{
+  		_garagefriends set [count _garagefriends,(_x select 0)];
+  	} count _friend;
+  	_garageallowed = [_owner] + _garagefriends;
+  	if ((_typeOfCursorTarget in DZE_Garage) && (speed player <= 1) && _canDo) then {
+  		if (s_player_garage < 0) then {
+	  		if ((getPlayerUID player) in _garageallowed) then {
+	  			s_player_garage =  player addAction ["<t color='#FFAA00'>Garage Menu</t>", "Garage\player_virtualgarage.sqf", _cursorTarget, 2, false];
+  			} else {
+	  			s_player_garage = player addAction ["<t color='#FF0000'>Garage Locked</t>", "",_cursorTarget, 2, true, true, "", ""];	
+	  		};
+  		};
+  	} else {
+	  	player removeAction s_player_garage;
+	  	s_player_garage = -1;		
+  	};
+  
+This has to put to the buttom
 
-##### 1. Server Files
+  	player removeAction s_player_garage;
+  	s_player_garage = -1;
+  
+ 	
+ ##### 1. Server Files
 Copy and paste the files from the serverfolder to '\z\addons\dayz_server\compile\'
   
 ###### server_function.sqf
@@ -65,40 +100,5 @@ replace it with
 
     if ((count _intentory > 0) && !((typeOf _object) in DZE_Garage)) then {
 
-
-##### 2. Mission files
-###### Variables.sqf
-Paste this line at the top
-  
-	DZE_Garage = ["Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C","Land_MBG_Garage_Single_D"];
  
-###### fn_selfActions.sqf
-Add this anywhere below line 225
-  
-  	private ["_garageowner","_garagefriends","_garageallowed","_friend"];
-  	_garageowner = _cursorTarget getVariable ["ownerPUID","0"];
-  	_friend = _cursorTarget getVariable ["GarageFriends",[]];
-  	_garagefriends = [];
-  	{
-  		_garagefriends set [count _garagefriends,(_x select 0)];
-  	} count _friend;
-  	_garageallowed = [_owner] + _garagefriends;
-  	if ((_typeOfCursorTarget in DZE_Garage) && (speed player <= 1) && _canDo) then {
-  		if (s_player_garage < 0) then {
-	  		if ((getPlayerUID player) in _garageallowed) then {
-	  			s_player_garage =  player addAction ["<t color='#FFAA00'>Garage Menu</t>", "Garage\player_virtualgarage.sqf", _cursorTarget, 2, false];
-  			} else {
-	  			s_player_garage = player addAction ["<t color='#FF0000'>Garage Locked</t>", "",_cursorTarget, 2, true, true, "", ""];	
-	  		};
-  		};
-  	} else {
-	  	player removeAction s_player_garage;
-	  	s_player_garage = -1;		
-  	};
-  
-This has to put to the buttom
-
-  	player removeAction s_player_garage;
-  	s_player_garage = -1;
-  	
 ###### Done.
