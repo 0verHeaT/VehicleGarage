@@ -63,7 +63,8 @@ This has to put to the buttom
   	s_player_garage = -1;
   
  	
- ##### 1. Server Files
+##### 1. Server Files
+ 
 Copy and paste the files from the serverfolder to '\z\addons\dayz_server\compile\'
   
 ###### server_function.sqf
