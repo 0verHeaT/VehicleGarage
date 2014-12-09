@@ -37,7 +37,7 @@ Paste this line at the top
 Add this anywhere below line 225
   
   	private ["_garageowner","_garagefriends","_garageallowed","_friend"];
-  	_garageowner = _cursorTarget getVariable ["ownerPUID","0"];
+  	_garageowner = _cursorTarget getVariable ["ownerPUID","0"]; //<-- We get the PUID of the owner. Here with P4L
   	_friend = _cursorTarget getVariable ["GarageFriends",[]];
   	_garagefriends = [];
   	{
