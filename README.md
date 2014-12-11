@@ -25,7 +25,7 @@ Dont forget to add this to your custom compiles.sqf
 ###### description.ext
 	
 	#include "Garage\garage_defines.hpp"
-	#inlcude "Garage\garage_dialog.hpp"
+	#include "Garage\garage_dialog.hpp"
 	
 ##### 1. Mission files
 ###### Variables.sqf
